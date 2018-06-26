@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Gladiatus Helper Standard",
+  "version": "1.0",
+  "description": "This extension helps you to imporve ur gladiatus game",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["jquery-3.3.1.min.js","background.js"]
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://*.gladiatus.gameforge.com/*"
+      ],
+      "js": [ "jquery-3.3.1.min.js", "start.js"]
+    }
+  ],
+   "web_accessible_resources": ["jquery-3.3.1.min.js","content.js"],
+  "externally_connectable": {
+    "matches": ["https://*.gladiatus.gameforge.com/*"]
+  }
+}
